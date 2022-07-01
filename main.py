@@ -1,3 +1,4 @@
+from telethon.tl.types import MessageMediaWebPage
 from config import bot, auth_users
 from telethon import events, Button
 from telethon.tl.types import MessageMediaPhoto
@@ -13,7 +14,7 @@ async def handler(event):
         return
     builder = event.builder
     options = []
-    if media == None:
+    if media == None or type(media) == MessageMediaWebPage:
         options.append(
             builder.article(
                 title = ad, 
